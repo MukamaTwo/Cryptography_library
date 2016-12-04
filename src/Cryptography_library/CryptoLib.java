@@ -92,7 +92,17 @@ public class CryptoLib {
 	 * modular inverse does not exist.
 	 **/
 	public static int ModInv(int n, int m) {
-		return -1;
+		n=(n<0)?m+n:n;   //turn negative to positive		
+		int[] eeaResult = EEA(n, m);   //obtain euclidean vlaues
+		int gcd=eeaResult[0];
+		int v=eeaResult[1]; 
+		
+		//n and m need to be co-prime or the inverse won't exist.		
+		if (gcd==1){
+			v=(v<0)?m+v:v;
+			return v;
+		}		
+		return 0;
 	}
 
 	/**
