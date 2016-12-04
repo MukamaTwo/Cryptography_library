@@ -108,10 +108,10 @@ int TestHashCP(double n, double s, double expected) {
 
 void TestHashCP(){
     int errors=0;
-    errors += TestHashCP(24,356,0.547481);
-    errors += TestHashCP(100,4096,0.704298);
+    errors += TestHashCP(24,356,0.554692);
+    errors += TestHashCP(100,4096,0.704977);
     errors += TestHashCP(128,128,1);
-    errors += TestHashCP(10,8202,0.00547355);
+    errors += TestHashCP(10,8202,0.00607753);
     std::cout << "Total errors in the HashCP function " << errors << std::endl;
     
     

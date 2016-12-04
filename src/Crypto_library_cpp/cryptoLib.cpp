@@ -4,6 +4,7 @@
 //   ./cryptoLib
 
 #include <stdio.h>
+#include <math.h>       /* pow */
 
 /**
  * Assigns to the array "result" the values "result[0] = gcd", "result[1] = s"
@@ -81,5 +82,6 @@ int FermatPT(int n){
  * the hash function can produce.
  **/
 double HashCP(double n_samples, double size){
-    return -1;
+	double power=n_samples*n_samples/(2*size);	
+	return 1-exp(-power);
 }
