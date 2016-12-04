@@ -75,7 +75,16 @@ public class CryptoLib {
 	 * Returns Euler's Totient for value "n".
 	 **/
 	public static int EulerPhi(int n) {
-		return -1;
+		int totCount=0, i=1;
+		if (n<0)
+			return 0;
+		
+		while(i<=n){
+			if(EEA(i, n)[0]==1)
+				totCount++;
+			i++;
+		}		
+		return totCount;
 	}
 
 	/**
