@@ -148,7 +148,9 @@ public class CryptoLib {
 	 * different output values the hash function can produce.
 	 **/
 	public static double HashCP(double n_samples, double size) {
-		return -1;
+		double power=n_samples*n_samples/(2*size);
+		
+		return 1-Math.exp(-power);
 	}
 
 }
