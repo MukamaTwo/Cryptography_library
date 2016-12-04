@@ -35,13 +35,43 @@ int EulerPhi(int n){
 int ModInv(int n, int m){
     return -1;
 }
+	
 
+/** calculate (a ^ n1) % mod **/
+	int powerModulo(int a, int n1, int mod){
+		int res=1;
+		//res^g+1=res*res^g
+		for (int i = 0; i < n1; i++){
+			res =res * a;
+			res =res % mod;
+		}
+		return res % mod;
+	}
+	
 /**
  * Returns 0 if "n" is a Fermat Prime, otherwise it returns the lowest Fermat
  * Witness. Tests values from 2 (inclusive) to "n/3" (exclusive).
  **/
 int FermatPT(int n){
-    return -1;
+	int  i=0,k=0,lowestwitness=0, a=2, limit=n/3;
+	
+	while(a<limit){
+		//n is probably prime or a is a fermat witness
+	  if (powerModulo(a, n-1, n) == 1) {				
+		  i++;				 
+	  } else{
+		  if(k==0){		   //store lowest witness
+		      lowestwitness=a;
+		  }
+		  k++;
+	  }		  
+	a++;
+	}  
+	//number that is relatively prime with all n/3
+	if(i+2==limit )      
+	     return 0;		
+	else
+		return lowestwitness;
 }
 
 /**
