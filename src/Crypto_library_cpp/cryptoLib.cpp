@@ -74,7 +74,18 @@ void EEA(int a, int b, int result[]) {
  * Returns Euler's Totient for value "n".
  **/
 int EulerPhi(int n){
-    return -1;
+	int totCount=0, i=1;
+	int a[]={-1,-1,-1};
+	if (n<0)
+		return 0;
+	
+	while(i<=n){
+		EEA(i, n,a);
+		if(a[0]==1)
+			totCount++;
+		i++;
+	}		
+	return totCount;
 }
 
 /**
