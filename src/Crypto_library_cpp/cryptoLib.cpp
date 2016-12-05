@@ -75,13 +75,13 @@ void EEA(int a, int b, int result[]) {
  **/
 int EulerPhi(int n){
 	int totCount=0, i=1;
-	int a[]={-1,-1,-1};
+	int test[]={-1,-1,-1};
 	if (n<0)
 		return 0;
 	
 	while(i<=n){
-		EEA(i, n,a);
-		if(a[0]==1)
+		EEA(i, n,test);
+		if(test[0]==1)
 			totCount++;
 		i++;
 	}		
@@ -93,7 +93,18 @@ int EulerPhi(int n){
  * Returns 0 if the modular inverse does not exist.
  **/
 int ModInv(int n, int m){
-    return -1;
+	n=(n<0)?m+n:n;   //turn negative to positive	
+	int test2[]={-1,-1,-1};
+	EEA(n, m, test2);   //obtain euclidean vlaues
+	int gcd=test2[0];
+	int v=test2[1]; 
+	
+	//n and m need to be co-prime or the inverse won't exist.		
+	if (gcd==1){
+		v=(v<0)?m+v:v;
+		return v;
+	}		
+	return 0;
 }
 	
 
